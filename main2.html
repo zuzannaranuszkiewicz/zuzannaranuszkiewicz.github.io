@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Backyards Aarhus</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* different background for this page */
+        body {
+            background-image: url(background/background_volunteer.png);
+        }
+        .nav {
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation bar -->
+    <div class="navigation">
+        <!-- logo -->
+        <img onclick="location.href = 'main.html';" src="pictures/logo.png" alt="logo" id="logo">
+        <span class="nav">
+            <div onclick="location.href = 'main.html';" class="shortcut" id="active">EXPLORE</div>
+            <div onclick="location.href = 'map.html';" class="shortcut">MAP</div>
+            <div onclick="location.href = 'sign.html';" class="shortcut">PROFILE</div>
+            <div onclick="location.href = 'oops.html';" class="shortcut">DANSK</div>
+            <button onclick="redirect()" id="getplace">GET A PLACE</button>
+        </span>
+    </div>
+    <!-- light mode  -->
+    <img onclick="location.href = 'oops.html';" src="pictures/lightmode.png" alt="mode" id="mode">
+
+    <!-- burger menu -->
+    <div class="burger">
+        <input type="checkbox" name="" id="">
+        <div class="hamburgerlines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+        </div>
+        <div class="shortcuts">
+            <div onclick="location.href = 'main.html';" class="shortcut" id="active">EXPLORE</div>
+            <div onclick="location.href = 'map.html';" class="shortcut">MAP</div>
+            <div onclick="location.href = 'sign.html';" class="shortcut">PROFILE</div>
+            <div onclick="location.href = 'oops.html';" class="shortcut">DANSK</div>
+            <button class="button" onclick="redirect()" id="getaplace" class="shortcut">GET A PLACE</button>
+            <img onclick="location.href = 'oops.html';" src="pictures/lightmode.png" alt="mode" id="lightmode" class="shortcut">
+        </div>
+    </div>    
+    
+    <!-- first thing users see on the page -->
+    <div class="title">
+        <h1>VOLUNTEERING BACKYARD</h1>
+        <a href="#about"><button>EXPLORE</button></a>
+        <div class="arrows">
+            <img onclick="location.href = 'main.html';" src="pictures/prev.png" alt="arrow prev">
+            <img onclick="location.href = 'main3.html';" src="pictures/next.png" alt="arrow next">
+        </div>
+    </div>
+
+    <!-- about -->
+    <div class="about" id="about">
+        <div class="info">
+            <div class="infotext">
+                <h1>VOLUNTEERING BACKYARD</h1>
+                <h2>LOCATION: Mejlgade 53, 8000 Aarhus</h2>
+                <p>Safe space for open discussions and social meetings with artistic people in your city!</p>
+                <p>The “central to Aarhus’ music and cultural life” is situated on the Mejlgade, in the oldest 
+                    part of the city. It’s an open space, located between Café Mellemfolk and a Super record 
+                    store (both being run entirely by volunteers). If you are a creative soul and want to 
+                    contribute to the safe space, then it’s a place for you!</p>
+
+                <div class="buttons">
+                    <button onclick="location.href = 'map.html';">SHOW ON MAP</button>
+                    <a href="#slide-container">
+                        <button id="inspired">GET INSPIRED</button>
+                    </a>
+                </div>
+            </div>
+             <!-- here is suppossed to be a carousel -->
+            <div class="container"><video src="videos/backyard.mp4" width="fit-content" height="750px" autoplay controls loop></video></div>
+        </div>
+    </div>
+
+
+    <!-- inspo gallery -->
+    <div class="experience" id="slide-container">
+    <h2>Experience the place with other explorers’ eyes and get inspired!</h2> 
+
+        <div class="slide-container">
+            <span class="slider-span" id="slider-span1"></span>
+            <span class="slider-span" id="slider-span2"></span>
+            <span class="slider-span" id="slider-span3"></span>
+            <span class="slider-span" id="slider-span4"></span>
+            <!-- slides -->
+            <div class="image-slider">
+                <div class="slides-div" id="slide-1">
+                    <img src="carousel photos/backyard/one.png" class="img" alt="photo of the place" id="img1">
+                    <a href="#slider-span1" class="button" id="button-1"></a>
+                </div>
+                <div class="slides-div" id="slide-2">
+                    <img src="carousel photos/backyard/two.png" alt="photo of the place" class="img" id="img2">
+                    <a href="#slider-span2" class="button" id="button-2"></a>
+                </div>
+                <div class="slides-div" id="slide-3">
+                    <img src="carousel photos/backyard/three.png" alt="photo of the place" class="img" id="img3">
+                    <a href="#slider-span3" class="button" id="button-3"></a>
+                </div>
+                <div class="slides-div" id="slide-4">
+                    <img src="carousel photos/backyard/four.png" alt="photo of the place" class="img" id="img4">
+                    <a href="#slider-span4" class="button" id="button-4"></a>
+                </div>
+            </div>
+        </div>
+        <!-- button for the pop-up-->
+        <button onclick="location.href = 'sign.html';" id="inspire">INSPIRE OTHERS</button>
+    </div>
+
+    <!-- scroll up -->
+    <a href="#top"><img src="pictures/scroll.png" id="scroll" alt="scroll"></a>
+
+    <script src="js.js"></script>
+</body>
+<footer>
+    <h5>If you have ideas for a hidden backyard or experiencing some issues, contact us!</h5>
+    <h5>EMAIL: hiddenbackyards.aarhus@gmail.com<br>
+    PHONE: +4555577722</h5>
+    <h6>&copy; Hidden Backyards Aarhus</h6>
+</footer>
+</html>

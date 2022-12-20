@@ -1,0 +1,1318 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@300;400;500;600&family=Secular+One&family=Unbounded:wght@400;500;700&display=swap');
+
+:root {
+    --green: #6C7854;
+    --footer: #424D2B;
+    --orange: #F98110;
+    --reddish: #DA652F;
+    --red: #520b0b;
+    --white: #F7F7F7;
+    --black: #454545;
+}
+
+/* body */
+body {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: var(--black);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--white);
+    scroll-behavior: smooth;
+    transition: 0.3s;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    font-family: 'Unbounded', cursive;
+}
+
+/* footer */
+footer {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    bottom: 0;
+    background-color: var(--footer);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+h5 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+h6 {
+    font-weight: lighter;
+    font-size: 15px;
+}
+
+img {
+    border-radius: 10px;
+    box-shadow: 0 3px 6px #00000030;
+}
+
+/* scroll icon */
+#scroll {
+    z-index: 5;
+    width: 50px;
+    position: relative;
+    top: 120px;
+    left: 1830px;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px #00000030;
+    transition: 0.3s;
+}
+
+#scroll:hover {
+    cursor: pointer;
+    transform:scale(1.3)
+}
+
+/* navigation */
+.navigation {
+    z-index: 10;
+    display: flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px;
+    width: 100%;
+    position: fixed;
+
+}
+
+#logo {
+    width: 200px;
+    height: auto;
+    margin-right: auto;
+    transition: 0.3s;
+}
+
+#logo:hover {
+    transform:scale(1.1);
+    cursor: pointer;
+}
+
+/* changing the mode */
+#mode {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    top: 960px;
+    margin-left: 40px;
+    border-radius: 50%;
+    box-shadow: 0 3px 6px #00000030;
+    transition: 0.3s;
+    z-index: 8;
+}
+
+#mode:hover {
+    cursor: pointer;
+    transform:scale(1.3)
+}
+
+/* the navigation bar */
+.nav {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    height: 30px;
+}
+
+.shortcut {
+    margin: 40px;
+    text-shadow: 0 3px 6px #00000030;
+    transition: 0.3s;
+    position: relative;
+    cursor: pointer;
+}
+
+/* line when hovered */
+.shortcut:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 7px;
+    bottom: -9px;
+    left: 0px;
+    transform: scaleX(0);
+    background: var(--green);
+    transform-origin: bottom right;
+    transition: transform 0.5s;
+}
+  
+/* line when stopped being hovered */
+  .shortcut:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* line displayed for a title of a page you are on */
+#active::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 7px;
+    bottom: -9px;
+    left: 0px;
+    background: var(--green);
+}
+
+/* button for random place */
+#getplace {
+    height: 60px;
+    width: 200px;
+    font-size: 25px;
+    text-shadow: none;
+    margin-left: 20px;
+}
+
+/* buttons */
+button:not(mapboxgl-popup) {
+    width: 330px;
+    height: 100px;
+    background-color: var(--green);
+    color: var(--white);
+    border-color: transparent;
+    font-size: 55px;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px #00000030;
+    transition: 0.3s;
+}
+
+button:hover:not(mapboxgl-popup) {
+    background-color: var(--white);
+    color: var(--green);
+    cursor: pointer;
+    box-shadow: inset 0 3px 6px #00000030;
+    border: none;
+}
+
+/* map.html */
+#map { 
+    position: absolute; 
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+/* markers */
+.marker_anger {
+    background-image: url(pictures/anger_popup.png);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 3px 6px #00000030;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--black);
+    border: 7px solid var(--green);
+}
+
+.marker_anger:hover {
+    border-color: var(--footer);
+}
+
+.marker_volunteer {
+    background-image: url(pictures/volunteer_popup.png);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 3px 6px #00000030;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--black);
+    border: 7px solid var(--green);
+}
+
+.marker_volunteer:hover {
+    border-color: var(--footer);
+}
+
+.marker_casa {
+    background-image: url(pictures/casa_popup.png);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 3px 6px #00000030;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--black);
+    border: 7px solid var(--green);
+}
+
+.marker_casa:hover {
+    border-color: var(--footer);
+}
+
+.marker_teater {
+    background-image: url(pictures/teater_popup.png);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 3px 6px #00000030;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--black);
+    border: 7px solid var(--green);
+}
+
+.marker_teater:hover {
+    border-color: var(--footer);
+}
+
+.marker_academy {
+    background-image: url(pictures/academy_popup.png);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 3px 6px #00000030;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--black);
+    border: 7px solid var(--green);
+}
+
+.marker_academy:hover {
+    border-color: var(--footer);
+}
+
+.marker_rooftop {
+    background-image: url(pictures/rooftop_popup.png);
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 3px 6px #00000030;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--black);
+    border: 7px solid var(--green);
+}
+
+.marker_rooftop:hover {
+    border-color: var(--footer);
+}
+   
+/* popups about the markers */
+.mapboxgl-popup {
+    width: 220px;
+    font-weight: bold;
+    color: var(--footer);
+}
+
+.mapboxgl-popup button {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    box-shadow: none;
+}
+
+/* oops.html */
+#maze {
+    width: 1000px;
+    height: 400px;
+    position: absolute;
+    display: flex;
+    align-self: center;
+    top: 80px;
+    margin-top: -40px;
+    box-shadow: none;
+}
+
+/* circle making the 404 sign */
+#road {
+    z-index: 3;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--reddish);
+    animation-name: trip;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+    position: absolute;
+    top: -50px;
+    left: -50px;
+}
+
+/*animation for 404 */
+@keyframes trip {
+    0% {top: 70px; left: 420px;}
+    6% {top: 70px; left: 550px;}
+    15% {top: 210px; left: 550px;}
+    23% {top: 210px; left: 730px;}
+    30% {top: 120px; left: 730px;}
+    36% {top: 320px; left: 730px;}
+    43% {top: 320px; left: 1030px;}
+    50% {top: 210px; left: 1030px;}
+    56% {top: 210px; left: 850px;}
+    63% {top: 310px; left: 850px;}
+    70% {top: 310px; left: 1280px;}
+    78% {top: 80px; left: 1280px;}
+    83% {top: 180px; left: 1280px;}
+    91% {top: 180px; left: 1130px;}
+    100% {top: -50px; left: 1130px;}
+}
+
+/* message */
+#oopsmsg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+    padding-top: 180px;
+    margin-bottom: auto;
+}
+
+#home {
+    margin-top: 40px;
+}
+
+h1 {
+    font-size: 70px;
+    text-align: center;
+    font-weight: bold;
+    margin: 30px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    font-weight: lighter;
+}
+
+/* main.html */
+/* title */
+.title {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 360px;
+    margin-bottom: 440px;
+    gap: 60px;
+}
+
+/* arrows for new pages */
+.arrows {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-top: -240px;
+}
+
+.arrows img {
+    height: 60px;
+    width: auto;
+    box-shadow: none;
+}
+
+/* animation for arrrows */
+.arrows img:hover {
+    opacity: 0.8;
+    margin-left: -20px;
+    margin-right: -20px;
+    height: 80px;
+    margin-top: -10px;
+    cursor: pointer;
+}
+
+/* container for info */
+.about {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info {
+    width: 100%;
+    display: flex;
+    padding-top: 40px;
+    justify-content: space-evenly;
+}
+
+
+.infotext {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.infotext h1 {
+    font-size: 50px;
+    margin: 0px;
+    margin-bottom: 40px;
+}
+
+.infotext h2 {
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: bolder;
+}
+
+.infotext p {
+    font-size: 35px;
+    width: 800px;
+    margin-bottom: 20px;
+}
+
+.buttons button{
+    font-size: 35px;
+    height: 90px;
+    width: 320px;
+}
+
+.buttons {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+}
+
+/* video */
+.container {
+    width: 700px;
+    height: 100vh;
+    padding-right: 80px;
+    position: relative;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+video {
+    border-radius: 10px;
+    box-shadow: 0 3px 6px #00000030;
+}
+
+
+/* inspiration slider */
+.slide-container {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#inspire {
+    width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+
+}
+
+.experience {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 130px;
+}
+
+.image-slider{
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+}
+
+.slides-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+}
+
+.img{
+    position: relative;
+    width: 240px;
+    height: 240px;
+    transition: 0.5s;
+}
+
+.button {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    transition: 0.5s;
+    background-color: #000000;
+    opacity: 0.8;
+    border-radius: 10px;
+    
+}
+
+/* photos */
+#slider-span1:target ~ .image-slider #img1,
+#slider-span1:target ~.image-slider #button-1{
+    width: 480px;
+    height: 500px;
+    background-color: transparent;
+}
+#slider-span2:target ~ .image-slider #img2,
+#slider-span2:target ~.image-slider #button-2{
+    width: 480px;
+    height: 500px;
+    background-color: transparent;
+}
+#slider-span3:target ~ .image-slider #img3,
+#slider-span3:target ~.image-slider #button-3{
+    width: 480px;
+    height: 500px;
+    background-color: transparent;
+}
+#slider-span4:target ~ .image-slider #img4,
+#slider-span4:target ~.image-slider #button-4{
+    width: 480px;
+    height: 500px;
+    background-color: transparent;
+}
+
+
+/* position for photos */
+#slider-span1:target ~.image-slider{
+    left:25%;
+}
+#slider-span2:target ~.image-slider{
+    left:8%;
+}
+#slider-span3:target ~.image-slider{
+    left:-8.5%;
+}
+
+#slider-span4:target ~.image-slider{
+    left:-25.5%;
+}
+
+/* button */
+#inspire {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-self: center;
+    margin-bottom: 20px;
+}
+
+#info {
+    height: 30px;
+    width: 30px;
+}
+
+#info:hover{
+    height: 40px;
+    width: 40px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* form */
+.form_content {
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+}
+
+.form {
+    margin: 30px;
+    position: relative;
+    font-weight: bolder;
+    filter: drop-shadow(3px 6px 9px black);
+}
+
+.form input {
+    padding: 20px 20px;
+    font-size: 25px;
+    border-radius: 10px;
+    transition: 0.2s all ease-in-out;
+    border-color: var(--white);
+}
+
+/* width of the form */
+input {
+    width: 600px;
+}
+
+/* hidden placeholder */
+::placeholder {
+    color: transparent;
+}
+
+.form
+.label {
+    position: absolute;
+    top: 20px; /* position of displayed names */
+    left: 10px; /* position of displayed names */
+    padding: 0 15px;
+    font-size: 25px;
+    color: var(--black);
+    pointer-events: none;
+    transition: 0.2s all ease;
+    border-color: var(--white);
+}
+
+.form 
+input:focus + 
+.label,
+.form
+input:not(:placeholder-shown) + 
+.label {
+    transform: translate(7px, -35px); /* new position of displayed text */
+    background-color: var(--green);
+    color: var(--white);
+    font-size: 25px;
+    border-radius: 10px;
+
+}
+
+input#color {
+    height: 385px;
+}
+
+
+.divide {
+    display: flex;
+
+}
+
+#color {
+    height: 360px;
+}
+
+/* submit button */
+#submit {
+    width: 330px;
+    background-color: transparent;
+    border: transparent;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#submit:hover {
+    color: var(--green);
+    cursor: pointer;
+}
+
+#submit_button {
+    margin-bottom: 130px;
+}
+
+/* error messages */
+.emsg { 
+    color: var(--red); 
+    font-size: 22px;
+    margin: 5px 20px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* submit.html */
+#water {
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: fit-content;
+    bottom: 0;
+}
+
+#square {
+    width: 45vw;
+    height: 100vh;
+    right: 0;
+    position: fixed;
+    background-color: #000000dd;
+}
+
+#thanks {
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 60vw;
+    margin-top: 30vh;
+    text-align: left;
+}
+
+#thanks h1 {
+    margin-left: 0;
+}
+
+#thanks h2 {
+    text-align: left;
+    margin-left: 0;
+    font-size: 35px;
+    padding-right: 40px;
+}
+
+#journey {
+    margin-top: 30px;
+    font-size: 35px;
+    width: 440px;
+}
+
+/* hide & block */
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.burger {
+    display: none;
+
+}
+
+/* responsive for iPhone 12 */
+@media only screen and (max-width: 870px) {
+    
+    /* hide navigation */
+    .nav {
+        display: none;
+    }
+
+    #logo {
+        width: 100px;
+        
+    }
+
+    .navigation {
+        padding: 20px;
+    }
+
+    footer h5 {
+        z-index: 0;
+        font-size: 13px;
+    }
+
+    h5 {
+        font-size: 13px;
+    }
+
+    #mode {
+        display: none;
+    }
+
+    #getplace {
+        display: none;
+    }
+
+    /* burger menu */
+    .burger {
+        z-index: 11;
+        position: fixed;
+        display: block;
+        display: flex;
+        flex-direction: column;
+        font-weight: bold;
+        align-items: flex-end;
+        justify-content: center;
+        font-size: 20px;
+        text-align: right;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    /* padding */
+    .shortcut {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        margin-right: 10px;
+    }
+
+    /* "hovers" */
+    .shortcut:after {
+        background: var(--white);
+        bottom: 18px;
+        height: 5px;
+    }
+
+    #active::before {
+        background: var(--white);
+        bottom: 18px;
+        height: 5px;
+    }
+
+    /* green background */
+    .shortcuts {
+        background-color: var(--green);
+        width: 150px;
+        border-radius: 20px 0 0 20px;
+        box-shadow: 0 3px 6px var(--black);
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    /* icon & button */
+    #lightmode {
+        width: 60px;
+        margin-right: 10px;
+        bottom: 0;
+        margin-top: 60px;
+        z-index: 2;
+        position: relative;
+    }
+
+    .burger #lightmode {
+        box-shadow: none;
+    }
+
+    #lightmode:hover {
+        cursor: pointer;
+        transform:scale(1.3)
+    }
+
+    #getaplace {
+        height: 40px;
+        width: 120px;
+        margin-right: 10px;
+        margin-top: 460px;
+        font-size: 15px;
+        text-shadow: none;
+        background-color: #424D2B;
+    }
+    
+    #getaplace:hover {
+        background-color: var(--white);
+        color: var(--footer);
+        cursor: pointer;
+        box-shadow: inset 0 3px 6px #00000030;
+        border: none;
+    }
+
+    /* burger buttos */
+    .burger input[type="checkbox"] {
+        position: absolute;
+        display: block;
+        height: 30px;
+        width: 30px;
+        top: 20px;
+        right: 20px;
+        z-index: 5;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .burger .hamburgerlines {
+        display: block;
+        height: 25px;
+        width: 35px;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .burger .hamburgerlines .line {
+        display: block;
+        height: 4px;
+        width: 100%;
+        border-radius: 10px;
+        background: var(--white);
+    }
+
+    .burger .hamburgerlines .line1 {
+        transform-origin: 0% 0%;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .burger .hamburgerlines .line2 {
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .burger .hamburgerlines .line3 {
+        transform-origin: 0% 100%;
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .burger .shortcuts {
+        padding-top: 100px;
+        transform: translate(150%);
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* transformations */
+    .burger input[type="checkbox"]:checked ~ .shortcuts {
+        transform: translateX(0);
+
+    }
+    
+    .burger input[type="checkbox"]:checked ~ .hamburgerlines .line1 {
+        transform: rotate(35deg);
+        background: var(--white);
+    }
+    
+    .burger input[type="checkbox"]:checked ~ .hamburgerlines .line2 {
+        transform: scaleY(0);
+        background: var(--green);
+    }
+    
+    .burger input[type="checkbox"]:checked ~ .hamburgerlines .line3 {
+        transform: rotate(-35deg);
+        background: var(--white);
+    }
+
+    /* scroll icon */
+    #scroll {
+        z-index: 9;
+        top: 130px;
+        left: 350px;
+        width: 30px;
+    }
+
+    /* main "message" */
+    h1 {
+        font-size: 35px;
+    }
+
+    h2 {
+        font-size: 25px;
+        margin: 10px;
+        margin-top: -10px;
+    }
+
+    /* oops.html */
+    #oopsmsg {
+        margin-top: 140px;
+    }
+
+    #home {
+        width: 280px;
+        height: 80px;
+        font-size: 33px;
+    }
+
+    #maze {
+        width: 300px;
+        height: auto;
+        top: 140px;
+        margin-top: 0px;
+    }
+
+    #road {
+        width: 10px;
+        height: 10px;
+        top: 40px;
+        left: -20px;
+    }
+
+
+    h5 {
+        font-size: 15px;
+    }
+
+    h6 {
+        font-size: 10px;
+    }
+
+    /* animation for responsive 404 */
+    @keyframes trip {
+        0% {top: 150px; left: -20px;}
+        6% {top: 150px; left: 70px;}
+        15% {top: 208px; left: 70px;}
+        23% {top: 208px; left: 125px;}
+        30% {top: 170px; left: 125px;}
+        36% {top: 250px; left: 125px;}
+        43% {top: 250px; left: 215px;}
+        50% {top: 210px; left: 215px;}
+        56% {top: 210px; left: 165px;}
+        63% {top: 250px; left: 165px;}
+        70% {top: 250px; left: 290px;}
+        78% {top: 150px; left: 290px;}
+        83% {top: 195px; left: 290px;}
+        91% {top: 195px; left: 245px;}
+        100% {top: -30px; left: 245px;}
+    }
+
+    /* main.html */
+    h1 {
+        font-size: 25px;
+    }
+
+    .arrows img {
+        height: 30px;
+    }
+
+    .arrows {
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-top: -200px;
+    }
+
+    button:not(mapboxgl-popup) {
+        width: 250px;
+        height: 80px;
+        font-size: 40px;
+    }
+
+    .title {
+        margin-top: 300px;
+        margin-bottom: 500px;
+    }
+
+    .arrows img:hover {
+        margin-left: -10px;
+        margin-right: -10px;
+        height: 40px;
+        margin-top: -5px;
+    }
+
+    .info {
+        flex-direction: column-reverse;
+    }
+
+    .infotext {
+        padding: 20px;
+    }
+
+    .infotext h1 {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .infotext h2 {
+        margin-bottom: 20px;
+        font-size: 18px;
+        text-align: left;
+        margin-left: 0;
+    }
+    
+    .infotext p {
+        font-size: 18px;
+        width: 350px;
+        margin-bottom: 10px;
+    }
+
+    .buttons button{
+        font-size: 20px;
+        height: 50px;
+        width: 160px;
+    }
+    
+    .buttons {
+        margin-top: 10px;
+        width: 350px;
+    }
+
+    .container {
+        width: 350px;
+        height: 300px;
+        padding-right: 0px;
+        margin-top: 20px;
+        margin-bottom: -20px;
+    }
+    
+    video {
+        height: 250px;
+    }
+
+    #inspire {
+        width: 300px;
+        font-size: 30px;
+    }
+
+    .slides-div {
+        margin: 10px;
+    }
+
+    #slider-span1:target ~ .image-slider #img1,
+    #slider-span1:target ~.image-slider #button-1{
+        width:250px;
+        height: 300px;
+    }
+
+    #slider-span2:target ~ .image-slider #img2,
+    #slider-span2:target ~.image-slider #button-2{
+        width:250px;
+        height: 300px;
+    }
+
+    #slider-span3:target ~ .image-slider #img3,
+    #slider-span3:target ~.image-slider #button-3{
+        width:250px;
+        height: 300px;
+    }
+
+    #slider-span4:target ~ .image-slider #img4,
+    #slider-span4:target ~.image-slider #button-4{
+        width:250px;
+        height: 300px;
+    }
+
+    /* position for photos */
+    #slider-span1:target ~.image-slider{
+        left:100%;
+    }
+
+    #slider-span2:target ~.image-slider{
+        left:33%;
+    }
+
+    #slider-span3:target ~.image-slider{
+        left:-33%;
+    }
+
+    #slider-span4:target ~.image-slider{
+        left:-100%;
+    }
+
+    .slide-container {
+        height: 400px;
+    }
+
+    /* submit.html */
+    #water {
+        position: absolute;
+        z-index: 0;
+        height: 100vh;
+        width: fit-content;
+        bottom: 0;
+    }
+
+    #square {
+        width: 100vw;
+        height: 50vh;
+        top: 25%;
+        position: fixed;
+        background-color: #000000dd;
+    }
+    
+    #thanks {
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin-left: 30px;
+        margin-top: 220px;
+        text-align: left;
+    }
+
+    #thanks h1 {
+        font-size: 40px;
+        margin-left: 0;
+    }
+
+    #thanks h2 {
+        text-align: left;
+        margin-left: 0;
+        font-size: 35px;
+        padding-right: 40px;
+    }
+
+    #journey {
+        margin-left: 0px;
+        font-size: 25px;
+        width: 330px;
+        height: 70px;
+    }
+
+    /* sign up */
+    .divide {
+        flex-direction: column;
+    }
+
+    input {
+        width: 300px;
+    }
+
+    .form input {
+        font-size: 20px;
+    }
+
+    .form 
+    input:focus + 
+    .label,
+    .form
+    input:not(:placeholder-shown) + 
+    .label {
+        transform: translate(7px, -30px);
+        font-size: 20px;
+    }
+
+    input#color {
+        height: 300px;
+    }
+
+    #submit {
+        width: 250px;
+    }
+
+    #submit_button {
+        margin-bottom: 30px;
+        margin-left: 0px;
+    }
+
+    .emsg { 
+        color: var(--red); 
+        font-size: 15px;
+        margin: 8px 13px;
+        width: 300px;
+    }
+
+    .form_content {
+        margin-left: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Backyards Aarhus</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* different background for this page */
+        body {
+            background-image: url(background/background_rooftop.png);
+        }
+        .nav {
+            color: var(--white);
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation bar -->
+    <div class="navigation">
+        <!-- logo -->
+        <img onclick="location.href = 'main.html';" src="pictures/logo.png" alt=logo id="logo">
+        <span class="nav">
+            <div onclick="location.href = 'main.html';" class="shortcut" id="active">EXPLORE</div>
+            <div onclick="location.href = 'map.html';" class="shortcut">MAP</div>
+            <div onclick="location.href = 'sign.html';" class="shortcut">PROFILE</div>
+            <div onclick="location.href = 'oops.html';" class="shortcut">DANSK</div>
+            <button onclick="redirect()" id="getplace">GET A PLACE</button>
+        </span>
+    </div>
+    <!-- light mode  -->
+    <img onclick="location.href = 'oops.html';" src="pictures/lightmode.png" alt="mode" id="mode">
+
+    <!-- burger menu -->
+    <div class="burger">
+        <input type="checkbox" name="" id="">
+        <div class="hamburgerlines">
+            <span class="line line1"></span>
+            <span class="line line2"></span>
+            <span class="line line3"></span>
+        </div>
+        <div class="shortcuts">
+            <div onclick="location.href = 'main.html';" class="shortcut" id="active">EXPLORE</div>
+            <div onclick="location.href = 'map.html';" class="shortcut">MAP</div>
+            <div onclick="location.href = 'sign.html';" class="shortcut">PROFILE</div>
+            <div onclick="location.href = 'oops.html';" class="shortcut">DANSK</div>
+            <button class="button" onclick="redirect()" id="getaplace" class="shortcut">GET A PLACE</button>
+            <img onclick="location.href = 'oops.html';" src="pictures/lightmode.png" alt="mode" id="lightmode" class="shortcut">
+        </div>
+    </div>
+
+    <!-- first thing users see on the page -->
+    <div class="title">
+        <h1>GODSBANEN'S ROOFTOP</h1>
+        <a href="#about"><button>EXPLORE</button></a>
+        <div class="arrows">
+            <img onclick="location.href = 'main5.html';" src="pictures/prev.png" alt="arrow prev">
+            <img onclick="location.href = 'main.html';" src="pictures/next.png" alt="arrow next">
+        </div>
+    </div>
+
+    <!-- about -->
+    <div class="about" id="about">
+        <div class="info">
+            <div class="infotext">
+                <h1>GODSBANEN'S ROOFTOP</h1>
+                <h2>LOCATION: Skovgaardsgade 3, 8000 Aarhus</h2>
+                <p>Sit down and enjoy the most beautiful view of the city on the cozy rooftop!</p>
+                <p>This rooftop is situated on the Godsbanen, which used to be a railway station. 
+                    Nowadays, it’s a home to culture, surrounded with lots of art. Everyone is welcome 
+                    to try their best in multiple workshops or just to sit, relax and socialise with 
+                    other open-minded people. Enjoy the view and the vibes!</p>
+
+                <div class="buttons">
+                    <button onclick="location.href = 'map.html';">SHOW ON MAP</button>
+                    <a href="#slide-container">
+                        <button id="inspired">GET INSPIRED</button>
+                    </a>
+                </div>
+            </div>
+             <!-- here is suppossed to be a carousel -->
+            <div class="container"><video src="videos/rooftop.mp4" width="fit-content" height="750px" autoplay controls loop></video></div>
+        </div>
+    </div>
+
+
+    <!-- inspo gallery -->
+    <div class="experience" id="slide-container">
+    <h2>Experience the place with other explorers’ eyes and get inspired!</h2> 
+
+        <div class="slide-container">
+            <span class="slider-span" id="slider-span1"></span>
+            <span class="slider-span" id="slider-span2"></span>
+            <span class="slider-span" id="slider-span3"></span>
+            <span class="slider-span" id="slider-span4"></span>
+            <!-- slides -->
+            <div class="image-slider">
+                <div class="slides-div" id="slide-1">
+                    <img src="carousel photos/rooftop/one.png" alt="photo of the place" class="img" id="img1">
+                    <a href="#slider-span1" class="button" id="button-1"></a>
+                </div>
+                <div class="slides-div" id="slide-2">
+                    <img src="carousel photos/rooftop/two.png" alt="photo of the place" class="img" id="img2">
+                    <a href="#slider-span2" class="button" id="button-2"></a>
+                </div>
+                <div class="slides-div" id="slide-3">
+                    <img src="carousel photos/rooftop/three.png" alt="photo of the place" class="img" id="img3">
+                    <a href="#slider-span3" class="button" id="button-3"></a>
+                </div>
+                <div class="slides-div" id="slide-4">
+                    <img src="carousel photos/rooftop/four.png" alt="photo of the place" class="img" id="img4">
+                    <a href="#slider-span4" class="button" id="button-4"></a>
+                </div>
+            </div>
+        </div>
+        <!-- button for the pop-up-->
+        <button onclick="location.href = 'sign.html';" id="inspire">INSPIRE OTHERS</button>
+    </div>
+
+    <!-- scroll up -->
+    <a href="#top"><img src="pictures/scroll.png" id="scroll" alt="scroll"></a>
+
+    <script src="js.js"></script>
+</body>
+<footer>
+    <h5>If you have ideas for a hidden backyard or experiencing some issues, contact us!</h5>
+    <h5>EMAIL: hiddenbackyards.aarhus@gmail.com<br>
+    PHONE: +4555577722</h5>
+    <h6>&copy; Hidden Backyards Aarhus</h6>
+</footer>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Backyards Aarhus</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* different background for this page */
+        body {
+            background-image: url(background/background_sign.png);
+        }
+
+        h1, h2 {
+            color: var(--black);
+        }
+
+        .nav {
+            color: var(--white);
+        }
+
+        @media only screen and (max-width: 870px) {
+            .burger .hamburgerlines .line {
+                background: var(--black);
+            }
+
+            h1 {
+                margin-top: 80px;
+                font-size: 60px;
+            }
+
+            h2 {
+                font-size: 25px;
+                margin-bottom: 30px;
+            }
+
+            form {
+                margin-top: -20px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <!-- navigation bar -->
+    <div class="navigation">
+        <!-- logo -->
+        <img onclick="location.href = 'main.html';" src="pictures/logodark.png" alt="logo" id="logo">
+    </div>
+    <!-- dark mode  -->
+    <img onclick="location.href = 'oops.html';" src="pictures/darkmode.png" alt="mode" id="mode">   
+
+    <!-- title -->
+    <h1 style="margin-bottom:40px">SIGN UP</h1>
+    <h2 style="font-weight: bold">Create an account for the full experience of Hidden Backyards Aarhus!</h2>
+    <h2>Already have an account? <a id="log" href="oops.html" style="color:var(--footer)">Log in</a></h2>
+
+    <!-- sign in/up form -->
+    <form onsubmit="return check()" novalidate autocomplete="off" action="submit.html">
+        <section class="form_content">
+        <div class="divide">
+        <div class="divideform">
+          <div class="form">
+            <input type="text" required minlength="3" autofocus placeholder="First Name" id="firstname" name="firstname">
+            <label for="firstname" class="label">First Name</label>
+            <div id="error_firstname" class="emsg"></div> 
+          </div>
+          <div class="form">
+            <input type="text" required minlenght="3" placeholder="Username" id="username" name="username">
+            <label for="username" class="label">Username</label>
+            <div id="error_username" class="emsg"></div>
+          </div>
+          <div class="form">
+            <input type="email" required placeholder="E-mail" id="email" name="email">
+            <label for="email" class="label">E-mail</label>
+            <div id="error_email" class="emsg"></div>
+          </div>
+          <div class="form">
+            <input type="password" required minlenght="6" placeholder="Password" id="password" name="password">
+            <label for="password" class="label">Password</label>
+            <div id="error_password" class="emsg"></div>
+          </div>
+        </div>
+        <div class="dividecolor">
+          <div class="form">
+            <input type="color" required placeholder="color" id="color" name="color">
+            <label for="color" class="label">Color of your avatar</label>
+            <div id="error_color" class="emsg"></div>
+          </div>
+        </div>
+        </div>
+          <div class="form" id="submit_button">
+            <button><input type="submit" id="submit" value="SIGN UP"></button>
+          </div>
+        </section>
+      </form>
+    
+    <!-- scroll up -->
+    <a href="#top"><img src="pictures/scroll.png" id="scroll" alt="scroll"></a>
+
+    <script src="js.js"></script>
+</body>
+<footer>
+    <h5>If you have ideas for a hidden backyard or experiencing some issues, contact us!</h5>
+    <h5>EMAIL: hiddenbackyards.aarhus@gmail.com<br>
+    PHONE: +4555577722</h5>
+    <h6>&copy; Hidden Backyards Aarhus</h6>
+</footer>
+</html>
